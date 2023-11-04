@@ -7,7 +7,7 @@ WORKDIR /facefusion
 
 RUN rm /etc/apt/sources.list.d/cuda.list
 RUN apt-key del 7fa2af80
-RUN apt-key adv --fetch-keys https://developer.download.nvidia.com/compute/cuda/repos/nvidia/cuda:11.8.0-cudnn8-runtime-ubuntu22.04/7fa2af80.pub
+RUN apt-key adv --fetch-keys https://developer.download.nvidia.com/compute/cuda/ubuntu2204/x86_64.pub
 
 RUN apt-get update --allow-unauthenticated --allow-insecure-repositories --allow-releaseinfo-change --allow-downgrades --allow-change-held-packages
 RUN apt-get install python3.10 -y  --allow-unauthenticated --allow-insecure-repositories --allow-releaseinfo-change --allow-downgrades --allow-change-held-packages
