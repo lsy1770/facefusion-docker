@@ -9,13 +9,13 @@ RUN rm /etc/apt/sources.list.d/cuda.list
 RUN apt-key del 7fa2af80
 RUN apt-key adv --fetch-keys https://developer.download.nvidia.com/compute/cuda/repos/ubuntu2204/x86_64/7fa2af80.pub
 
-RUN apt-get update --allow-unauthenticated --allow-insecure-repositories --allow-releaseinfo-change --allow-downgrades --allow-change-held-packages
-RUN apt-get install python3.10 -y  --allow-unauthenticated --allow-insecure-repositories --allow-releaseinfo-change --allow-downgrades --allow-change-held-packages
-RUN apt-get install python-is-python3 -y  --allow-unauthenticated --allow-insecure-repositories --allow-releaseinfo-change --allow-downgrades --allow-change-held-packages
-RUN apt-get install pip -y  --allow-unauthenticated --allow-insecure-repositories --allow-releaseinfo-change --allow-downgrades --allow-change-held-packages
-RUN apt-get install git -y  --allow-unauthenticated --allow-insecure-repositories --allow-releaseinfo-change --allow-downgrades --allow-change-held-packages
-RUN apt-get install curl -y  --allow-unauthenticated --allow-insecure-repositories --allow-releaseinfo-change --allow-downgrades --allow-change-held-packages
-RUN apt-get install ffmpeg -y  --allow-unauthenticated --allow-insecure-repositories --allow-releaseinfo-change --allow-downgrades --allow-change-held-packages
+RUN apt-get update 
+RUN apt-get install python3.10 -y  
+RUN apt-get install python-is-python3 -y  
+RUN apt-get install pip -y  
+RUN apt-get install git -y  
+RUN apt-get install curl -y  
+RUN apt-get install ffmpeg -y  
 
 RUN git clone https://github.com/facefusion/facefusion.git --branch ${FACEFUSION_VERSION} --single-branch .
 RUN python install.py --torch cuda --onnxruntime cuda
