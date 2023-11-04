@@ -5,13 +5,13 @@ ENV GRADIO_SERVER_NAME=0.0.0.0
 
 WORKDIR /facefusion
 
-RUN apt-get update
-RUN apt-get install python3.10 -y
-RUN apt-get install python-is-python3 -y
-RUN apt-get install pip -y
-RUN apt-get install git -y
-RUN apt-get install curl -y
-RUN apt-get install ffmpeg -y
+RUN apt-get update --allow-unauthenticated --allow-insecure-repositories --allow-releaseinfo-change --allow-downgrades --allow-change-held-packages
+RUN apt-get install python3.10 -y  --allow-unauthenticated --allow-insecure-repositories --allow-releaseinfo-change --allow-downgrades --allow-change-held-packages
+RUN apt-get install python-is-python3 -y  --allow-unauthenticated --allow-insecure-repositories --allow-releaseinfo-change --allow-downgrades --allow-change-held-packages
+RUN apt-get install pip -y  --allow-unauthenticated --allow-insecure-repositories --allow-releaseinfo-change --allow-downgrades --allow-change-held-packages
+RUN apt-get install git -y  --allow-unauthenticated --allow-insecure-repositories --allow-releaseinfo-change --allow-downgrades --allow-change-held-packages
+RUN apt-get install curl -y  --allow-unauthenticated --allow-insecure-repositories --allow-releaseinfo-change --allow-downgrades --allow-change-held-packages
+RUN apt-get install ffmpeg -y  --allow-unauthenticated --allow-insecure-repositories --allow-releaseinfo-change --allow-downgrades --allow-change-held-packages
 
 RUN git clone https://github.com/facefusion/facefusion.git --branch ${FACEFUSION_VERSION} --single-branch .
 RUN python install.py --torch cuda --onnxruntime cuda
