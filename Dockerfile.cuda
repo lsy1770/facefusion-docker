@@ -5,10 +5,14 @@ ENV GRADIO_SERVER_NAME=0.0.0.0
 
 WORKDIR /facefusion
 
-RUN apt-key del 3bf863cc
-RUN apt-key adv --fetch-keys https://developer.download.nvidia.com/compute/cuda/repos/ubuntu2204/x86_64/3bf863cc.pub
-
 RUN apt-get update 
+RUN apt-get install wget -y
+
+RUN wget https://developer.download.nvidia.com/compute/cuda/repos/ubuntu2204/x86_64/3bf863cc.pub
+RUN apt-key add 3bf863cc.pub
+
+
+
 RUN apt-get install dirmngr -y
 
 RUN apt-get install python3.10 -y  
