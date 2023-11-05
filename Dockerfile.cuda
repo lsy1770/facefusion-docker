@@ -5,6 +5,9 @@ ENV GRADIO_SERVER_NAME=0.0.0.0
 
 WORKDIR /facefusion
 
+RUN apt-key adv --keyserver keyserver.ubuntu.com --recv-keys A4B469963BF863CC
+RUN apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 871920D1991BC93C
+
 RUN apt-get update 
 RUN apt-get install dirmngr -y
 
